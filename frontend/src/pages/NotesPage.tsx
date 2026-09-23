@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNotesStore } from '../store/notesStore';
 import { useAuthStore } from '../store/authStore';
-import { AddNoteModal } from '../components/AddNoteModal';
+import AddNoteModal from '../components/AddNoteModal';
 import './NotesPage.css';
 
 const NotesPage: React.FC = () => {

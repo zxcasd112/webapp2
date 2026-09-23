@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHabitsStore } from '../store/habitsStore';
 import { useAuthStore } from '../store/authStore';
-import { AddHabitModal } from '../components/AddHabitModal';
+import AddHabitModal from '../components/AddHabitModal';
 import './HabitsPage.css';
 
 const HabitsPage: React.FC = () => {

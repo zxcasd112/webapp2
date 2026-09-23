@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useEventsStore } from '../store/eventsStore';
 import { useAuthStore } from '../store/authStore';
-import { AddEventModal } from '../components/AddEventModal';
+import AddEventModal from '../components/AddEventModal';
 import './EventsPage.css';
 
 const EventsPage: React.FC = () => {
