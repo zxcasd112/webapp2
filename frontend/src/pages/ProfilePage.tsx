@@ -3,7 +3,7 @@ import { useAuthStore } from '../store/authStore';
 import './ProfilePage.css';
 
 const ProfilePage: React.FC = () => {
-  const { user, logout, loading: authLoading } = useAuthStore();
+  const { user, logout } = useAuthStore();
   const [loading, setLoading] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');

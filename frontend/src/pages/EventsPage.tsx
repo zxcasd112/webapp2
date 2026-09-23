@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useEventsStore } from '../store/eventsStore';
-import { useAuthStore } from '../store/authStore';
 import AddEventModal from '../components/AddEventModal';
 import './EventsPage.css';
 
 const EventsPage: React.FC = () => {
   const { events, loading, fetchEvents, addEvent, updateEvent, deleteEvent, toggleComplete } = useEventsStore();
-  const { user } = useAuthStore();
   const [modalOpen, setModalOpen] = useState(false);
   const [editEventId, setEditEventId] = useState<number | null>(null);
   const [filter, setFilter] = useState<'all' | 'completed' | 'pending'>('all');

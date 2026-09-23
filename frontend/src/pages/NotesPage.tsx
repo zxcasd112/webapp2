@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNotesStore } from '../store/notesStore';
-import { useAuthStore } from '../store/authStore';
 import AddNoteModal from '../components/AddNoteModal';
 import './NotesPage.css';
 
 const NotesPage: React.FC = () => {
   const { notes, loading, fetchNotes, addNote, updateNote, deleteNote } = useNotesStore();
-  const { user } = useAuthStore();
   const [modalOpen, setModalOpen] = useState(false);
   const [editNoteId, setEditNoteId] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState('');

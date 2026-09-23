@@ -148,14 +148,14 @@ const AddEventModal: React.FC<AddEventModalProps> = ({ eventId, onClose, onSave 
             <div className="form-group">
               <label htmlFor="event-icon">Иконка квеста</label>
               <div className="icon-picker">
-                {iconOptions.map(icon => (
+                {iconOptions.map(option => (
                   <button
-                    key={icon}
+                    key={option}
                     type="button"
-                    className={`icon-btn ${icon === icon ? 'active' : ''}`}
-                    onClick={() => setIcon(icon)}
+                    className={`icon-btn ${option === icon ? 'active' : ''}`}
+                    onClick={() => setIcon(option)}
                   >
-                    {icon}
+                    {option}
                   </button>
                 ))}
               </div>

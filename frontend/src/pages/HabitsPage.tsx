@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHabitsStore } from '../store/habitsStore';
-import { useAuthStore } from '../store/authStore';
 import AddHabitModal from '../components/AddHabitModal';
 import './HabitsPage.css';
 
 const HabitsPage: React.FC = () => {
-  const { habits, habitTracking, loading, fetchHabits, addHabit, updateHabit, deleteHabit, toggleHabit, fetchHabitTracking } = useHabitsStore();
-  const { user } = useAuthStore();
+  const { habits, loading, fetchHabits, addHabit, updateHabit, deleteHabit, fetchHabitTracking } = useHabitsStore();
   const [modalOpen, setModalOpen] = useState(false);
   const [editHabitId, setEditHabitId] = useState<number | null>(null);
   const [selectedHabitForTracking, setSelectedHabitForTracking] = useState<number | null>(null);
@@ -32,14 +30,6 @@ const HabitsPage: React.FC = () => {
       } catch (error) {
         console.error('Failed to delete habit:', error);
       }
-    }
-  };
-
-  const handleToggleHabit = async (habitId: number, date: string) => {
-    try {
-      await toggleHabit(habitId, date);
-    } catch (error) {
-      console.error('Failed to toggle habit:', error);
     }
   };
 

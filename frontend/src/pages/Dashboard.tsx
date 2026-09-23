@@ -33,15 +33,6 @@ const Dashboard: React.FC = () => {
   // Get recent notes
   const recentNotes = notes.slice(0, 3);
 
-  // Get habit stats
-  const habitStats = habits.map(habit => {
-    // This would normally come from tracking data
-    return {
-      ...habit,
-      completionRate: Math.floor(Math.random() * 100) // Placeholder
-    };
-  });
-
   if (eventsLoading || notesLoading || habitsLoading) {
     return (
       <div className="dashboard-loading">

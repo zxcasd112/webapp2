@@ -1,9 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './store/authStore';
-import { useEventsStore } from './store/eventsStore';
-import { useNotesStore } from './store/notesStore';
-import { useHabitsStore } from './store/habitsStore';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -15,10 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const { user, loading: authLoading } = useAuthStore();
-  const { events, loading: eventsLoading } = useEventsStore();
-  const { notes, loading: notesLoading } = useNotesStore();
-  const { habits, loading: habitsLoading } = useHabitsStore();
+  const { user } = useAuthStore();
 
   // Check auth status
   const isAuthenticated = !!user;
