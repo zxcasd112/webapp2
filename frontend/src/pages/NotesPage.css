@@ -1,0 +1,244 @@
+.notes-page {
+  min-height: 100vh;
+  background: var(--primary-gradient);
+  padding: 2rem;
+  color: #e0e0e0;
+}
+
+.notes-page-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.notes-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--trans-light);
+  position: relative;
+}
+
+.notes-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+.notes-header h1 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--neutral-stone);
+  margin-bottom: 1.5rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.notes-search {
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  background: var(--trans-light);
+  border: 1px solid var(--trans-medium);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 1rem;
+  transition: var(--transition-medium);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-icy);
+  box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.2);
+  background: var(--trans-medium);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.notes-empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--neutral-stone);
+  font-style: italic;
+}
+
+.notes-empty .empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  opacity: 0.7;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.note-card {
+  background: var(--trans-medium);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--trans-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.note-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.note-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-gradient);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.note-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.note-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.note-date {
+  font-size: 0.85rem;
+  color: var(--neutral-stone);
+  background: var(--trans-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--trans-light);
+  color: #fff;
+  border: 1px solid var(--trans-medium);
+  border-radius: var(--radius-pill);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.note-content {
+  color: var(--neutral-parchment);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.note-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-icon {
+  background: var(--trans-light);
+  border: 1px solid var(--trans-medium);
+  border-radius: var(--radius-sm);
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.btn-icon:hover {
+  background: var(--trans-medium);
+  transform: scale(1.1);
+}
+
+/* Modal styles - reuse from EventsPage.css but adjust as needed */
+
+/* Alert styles - reuse from EventsPage.css */
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .notes-page {
+    padding: 1rem;
+  }
+
+  .notes-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+}

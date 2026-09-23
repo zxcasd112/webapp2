@@ -1,0 +1,180 @@
+.add-habit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.add-habit-modal .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.add-habit-modal .modal-content {
+  background: var(--trans-medium);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--trans-light);
+  border-radius: var(--radius-lg);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.add-habit-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--trans-light);
+}
+
+.add-habit-modal .modal-header h2 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 1.5rem;
+  margin: 0;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.add-habit-modal .btn-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--neutral-stone);
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-habit-modal .btn-close:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.add-habit-modal .habit-form {
+  padding: 1.5rem;
+}
+
+.add-habit-modal .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.add-habit-modal .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--neutral-parchment);
+}
+
+.add-habit-modal .form-input,
+.add-habit-modal .form-select,
+.add-habit-modal .form-textarea {
+  width: 100%;
+  background: var(--trans-light);
+  border: 1px solid var(--trans-medium);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 1rem;
+  transition: var(--transition-medium);
+}
+
+.add-habit-modal .form-input:focus,
+.add-habit-modal .form-select:focus,
+.add-habit-modal .form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-icy);
+  box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.2);
+  background: var(--trans-medium);
+}
+
+.add-habit-modal .form-input::placeholder,
+.add-habit-modal .form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.add-habit-modal .form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-habit-modal .help-text {
+  font-size: 0.85rem;
+  color: var(--neutral-stone);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.add-habit-modal .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.add-habit-modal .btn-outline {
+  background: var(--trans-light);
+  color: #fff;
+  border: 1px solid var(--trans-medium);
+}
+
+.add-habit-modal .btn-outline:hover {
+  background: var(--trans-medium);
+}
+
+.add-habit-modal .btn-primary {
+  background: var(--accent-gradient);
+  color: #fff;
+}
+
+.add-habit-modal .btn-primary:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+.add-habit-modal .alert {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.add-habit-modal .alert-error {
+  background: rgba(255, 0, 64, 0.1);
+  border: 1px solid rgba(255, 0, 64, 0.3);
+  color: #ff6b6b;
+}
+
+.add-habit-modal .alert-success {
+  background: rgba(0, 255, 127, 0.1);
+  border: 1px solid rgba(0, 255, 127, 0.3);
+  color: #4ecdc4;
+}

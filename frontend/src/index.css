@@ -1,0 +1,216 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Dark fantasy theme variables */
+:root {
+  /* Primary colors */
+  --primary-dark: #0a0a0a;
+  --primary-deep: #121212;
+  --primary-bg: #0f0c29;
+  --primary-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+
+  /* Accent colors */
+  --accent-crimson: #ff0040;
+  --accent-blood: #ff0060;
+  --accent-icy: #00bfff;
+  --accent-mystic: #9400d3;
+  --accent-emerald: #00ff7f;
+  --accent-gold: #ffd700;
+
+  /* Neutral colors */
+  --neutral-parchment: #f5deb3;
+  --neutral-stone: #8b8b8b;
+  --neutral-shadow: rgba(0, 0, 0, 0.7);
+
+  /* Transparency */
+  --trans-light: rgba(255, 255, 255, 0.05);
+  --trans-medium: rgba(255, 255, 255, 0.08);
+  --trans-dark: rgba(255, 255, 255, 0.12);
+
+  /* Shadows and effects */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(255, 0, 64, 0.5);
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 50px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Global styles */
+a {
+  color: var(--accent-icy);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--accent-emerald);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 2rem; }
+
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 2rem; }
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 1rem; }
+.gap-4 { gap: 1.5rem; }
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px var(--accent-crimson),
+                 0 0 20px var(--accent-crimson),
+                 0 0 30px var(--accent-crimson);
+  }
+  to {
+    text-shadow: 0 0 20px var(--accent-crimson),
+                 0 0 30px var(--accent-crimson),
+                 0 0 40px var(--accent-crimson);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Animation classes */
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 8s linear infinite;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--trans-light);
+  border-top-color: var(--accent-icy);
+  border-radius: 50%;
+  animation: rotate-slow 1s linear infinite;
+  margin: 0 auto;
+}

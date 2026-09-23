@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Агрессивно Красивый Задачник</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">TaskMaster</h1>
+            <p class="tagline">Твой персональный задачник для важных событий</p>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Создай свою идеальную систему управления событиями</h2>
+                <p class="hero-subtitle">Настройте важные события под себя с агрессивно красивым интерфейсом</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="get-started-btn">Начать работу</button>
+                    <button class="btn btn-secondary" id="features-btn">Особенности</button>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <div class="floating-events">
+                    <div class="event-card">
+                        <div class="event-icon">🎯</div>
+                        <h3>Цели и задачи</h3>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">📅</div>
+                        <h3>Встречи и дедлайны</h3>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">💡</div>
+                        <h3>Идеи и заметки</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <h2 class="section-title">Почему TaskMaster?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Агрессивный дизайн</h3>
+                    <p>Смелые цвета, анимации и эффекты, которые заряжают энергией</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Полная кастомизация</h3>
+                    <p>Настройте цвета, шрифты, иконки и layout под свой вкус</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Управление событиями</h3>
+                    <p>Создавайте, редактируйте и отслеживайте важные события с легкостью</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Локальное хранение</h3>
+                    <p>Все ваши данные сохраняются локально в браузере</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Адаптивный дизайн</h3>
+                    <p>Работает идеально на всех устройствах - от смартфона до 4K монитора</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Приватность прежде всего</h3>
+                    <p>Никаких серверов, никакого сбора данных - всё остается у вас</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customization Section -->
+        <section class="customization" id="customization">
+            <h2 class="section-title">Кастомизируй свои важные события</h2>
+            <div class="customization-demo">
+                <div class="event-customizer">
+                    <h3>Создай свое событие</h3>
+                    <form id="event-form">
+                        <div class="form-group">
+                            <label for="event-title">Название события</label>
+                            <input type="text" id="event-title" placeholder="Например: Презентация проекта" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-date">Дата и время</label>
+                            <input type="datetime-local" id="event-date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-type">Тип события</label>
+                            <select id="event-type">
+                                <option value="work">Работа</option>
+                                <option value="personal">Личное</option>
+                                <option value="health">Здоровье</option>
+                                <option value="learning">Обучение</option>
+                                <option value="social">Социальное</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-color">Цвет события</label>
+                            <input type="color" id="event-color" value="#ff6b6b">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Иконка события</label>
+                            <div class="icon-picker">
+                                <button class="icon-btn active" data-icon="🎯">🎯 Цель</button>
+                                <button class="icon-btn" data-icon="💼">💼 Работа</button>
+                                <button class="icon-btn" data-icon="❤️">❤️ Личное</button>
+                                <button class="icon-btn" data-icon="📚">📚 Обучение</button>
+                                <button class="icon-btn" data-icon="💪">💪 Здоровье</button>
+                                <button class="icon-btn" data-icon="🎉">🎉 Праздник</button>
+                                <button class="icon-btn" data-icon="✈️">✈️ Путешествие</button>
+                                <button class="icon-btn" data-icon="💰">💰 Финансы</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Добавить событие</button>
+                    </form>
+                </div>
+
+                <div class="event-preview">
+                    <h3>Предпросмотр</h3>
+                    <div id="event-preview">
+                        <div class="preview-empty">Добавьте событие, чтобы увидеть предпросмотр</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events List Section -->
+        <section class="events-section" id="events-section">
+            <h2 class="section-title">Ваши важные события</h2>
+            <div class="events-filter">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="work">Работа</button>
+                <button class="filter-btn" data-filter="personal">Личное</button>
+                <button class="filter-btn" data-filter="health">Здоровье</button>
+                <button class="filter-btn" data-filter="learning">Обучение</button>
+            </div>
+            <div id="events-container" class="events-grid">
+                <!-- Events will be populated here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <h2>Готов изменить свой подход к управлению временем?</h2>
+            <p>TaskMaster создан для тех, кто не боится быть продуктивным и стильным одновременно</p>
+            <button class="btn btn-primary btn-lg" id="start-now-btn">Начни прямо сейчас</button>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 TaskMaster. Создан с агрессивной красотой для продуктивных людей.</p>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Условия использования</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</body>
+</html>
