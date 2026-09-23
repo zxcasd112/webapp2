@@ -17,6 +17,12 @@ app.use(cors());
 app.use(express.json());
 
 // Database connection
+if (!process.env.DATABASE_URL) {
+  console.error(
+    'DATABASE_URL is not set! Falling back to localhost, which will fail in production. ' +
+    'Set it to your Render Postgres "Internal Database URL" in the service Environment settings.'
+  );
+}
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
