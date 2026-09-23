@@ -21,6 +21,23 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
+// Create schema on startup so a fresh database works without manual init.sql
+const initDatabase = async () => {
+  const schemaPath = path.join(__dirname, 'init.sql');
+  if (!fs.existsSync(schemaPath)) {
+    console.warn('init.sql not found, skipping schema init');
+    return;
+  }
+  const schema = fs.readFileSync(schemaPath, 'utf8');
+  try {
+    await pool.query(schema);
+    console.log('Database schema is ready');
+  } catch (err) {
+    console.error('Schema init failed:', err.code, '-', err.message);
+    console.error(err.stack);
+  }
+};
+
 // JWT secret
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret';
 
@@ -53,8 +70,8 @@ app.post('/api/login', async (req, res) => {
     const token = jwt.sign({ userId: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
     res.json({ token, user: { id: user.id, username: user.username, email: user.email } });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Server error' });
+    console.error('POST /api/login failed:', err.code, '-', err.message);
+    res.status(500).json({ error: 'Server error', detail: err.message });
   }
 });
 
@@ -70,8 +87,8 @@ app.post('/api/register', async (req, res) => {
     const token = jwt.sign({ userId: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
     res.status(201).json({ token, user });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Server error' });
+    console.error('POST /api/register failed:', err.code, '-', err.message);
+    res.status(500).json({ error: 'Server error', detail: err.message });
   }
 });
 
@@ -365,4 +382,5 @@ app.get('/health', async (req, res) => {
 // Start server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  initDatabase();
 });

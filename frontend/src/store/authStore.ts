@@ -29,7 +29,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({ user, token, loading: false });
     } catch (error: any) {
       set({ loading: false });
-      throw error.response?.data?.error || 'Login failed';
+      throw new Error(error.response?.data?.error || 'Login failed');
     }
   },
 
@@ -42,7 +42,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({ user, token, loading: false });
     } catch (error: any) {
       set({ loading: false });
-      throw error.response?.data?.error || 'Registration failed';
+      throw new Error(
+        error.response?.data?.detail ||
+        error.response?.data?.error ||
+        error.message ||
+        'Registration failed'
+      );
     }
   },
 
